@@ -20,7 +20,7 @@ DESC
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'rspec', '>= 2.0.0'
+  s.add_dependency 'rspec', '>= 2.11.0', '>= 2.0.0'
   s.add_dependency 'nokogiri', '>= 1.4.4'
 
   s.add_development_dependency 'simplecov'
@@ -28,5 +28,4 @@ DESC
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'sinatra'
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec', '>= 2.11.0' # in order to use new expect().to syntax
 end
