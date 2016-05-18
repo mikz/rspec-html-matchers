@@ -5,15 +5,13 @@ Bundler::GemHelper.install_tasks
 
 task :default => [:spec, :cucumber]
 
-desc "Validate the gemspec"
+desc 'Validate the gemspec'
 task :gemspec do
-  gemspec = eval(File.read(Dir["*.gemspec"].first))
+  gemspec = eval(File.read(Dir['*.gemspec'].first))
   gemspec.validate && puts('gemspec valid')
 end
 
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts='--tag ~wip'
-end
+RSpec::Core::RakeTask.new(:spec)
 
 namespace :spec do
   RSpec::Core::RakeTask.new(:wip) do |t|

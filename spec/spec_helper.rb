@@ -1,34 +1,22 @@
-require 'rspec/core'
-
 if defined?(SimpleCov)
   SimpleCov.start do
     add_group 'Main', '/lib/'
+    add_filter '/spec/'
   end
 end
 
 require 'rspec-html-matchers'
 
-SPEC_DIR = File.dirname(__FILE__)
-
-module AssetHelpers
-
-  def asset name
-    let :rendered do
-      IO.read File.join(SPEC_DIR,"assets/#{name}.html")
-    end
-  end
-
-end
-
-module CustomHelpers
-
-  def raise_spec_error msg
-    raise_error RSpec::Expectations::ExpectationNotMetError, msg
-  end
-
-end
+Dir[File.expand_path('../../spec/support/**/*.rb', __FILE__)].each { |f| require f }
 
 RSpec.configure do |config|
-  config.extend  AssetHelpers
-  config.include CustomHelpers
+  config.include RSpecHtmlMatchers
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+
+  config.filter_run_excluding wip: true
+
+  config.extend AssetHelpers
 end

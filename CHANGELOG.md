@@ -4,17 +4,65 @@ Changelog
 unreleased(TODO)
 ----------------
 
-* add :without to have\_tag? like have_tag('div', :without => { :class => 'test' })
 * with_tag should raise error when used outside have_tag
 * add ability to have_form('/url', 'PUT') or have_form('/url', :PUT)
 * inteligent check comments(make sure it is not searching inside comments)
 * shouldn't show all markup in error message if it is too big
-
-0.5.0(TODO)
------------
-
 * order matching
 * improve documentation, add more usage examples (look at changelog and code!)
+
+0.7.3
+-----
+
+* move license information into separate `LICENSE.md` file
+
+0.7.2
+-----
+
+* add support for `frozen_string_literals`
+* fix for rdoc links and not only
+
+0.7.1
+-----
+
+* become compatible with RSpec pre-release versions
+
+0.7.0
+-----
+
+* new, explicit configuration, refer to README
+* added ruby 2.2.0 to CI
+
+0.6.1
+-----
+
+* rspec 3 version update
+* added ruby 2.1.2 to CI
+
+0.6.0
+-----
+
+* introduced rspec 3.0.0 compatibility (thanks to [Tiago](https://github.com/TiagoCardoso1983))
+
+0.5.0
+-----
+
+* new "expect" syntax support
+
+0.4.4
+-----
+
+* options for have_tag now support Regexp (thanks to [Ian C. Anderson](http://github.com/iancanderson))
+
+0.4.3
+-----
+
+* added license to gemspec
+
+0.4.2
+-----
+
+* added :without to have\_tag? like have_tag('div', :without => { :class => 'test' }) NOTE: currently only classes supported
 
 0.4.1
 -----
